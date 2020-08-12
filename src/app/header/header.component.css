@@ -1,0 +1,13 @@
+nav{
+    padding: 10px;
+}
+
+nav a{
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.active{
+    color: green !important;
+}
