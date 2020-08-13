@@ -1,16 +1,16 @@
 import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HomeModule } from './home/home.module';
 
 // Array de rutas
 const appRoutes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
+    { path: 'home', loadChildren: () => import( './home/home.module' ).then(m => HomeModule) },
     { path: 'products', component: ProductComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'products/:id', component: ProductDetailComponent },
@@ -19,4 +19,6 @@ const appRoutes: Routes = [
 
 // Exportar el módulo
 export const appRoutingProviders: any[] = [];
-export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes, {
+    preloadingStrategy: PreloadAllModules
+});
