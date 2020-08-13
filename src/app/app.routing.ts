@@ -7,12 +7,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { HomeModule } from './home/home.module';
 
+import { AdminGuard } from './admin.guard';
+
 // Array de rutas
 const appRoutes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', loadChildren: () => import( './home/home.module' ).then(m => HomeModule) },
     { path: 'products', component: ProductComponent },
-    { path: 'contact', component: ContactComponent },
+    { path: 'contact', canActivate:  [AdminGuard], component: ContactComponent },
     { path: 'products/:id', component: ProductDetailComponent },
     { path: '**', component: PageNotFoundComponent }
 ];
