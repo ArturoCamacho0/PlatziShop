@@ -15,6 +15,4 @@ const homeRoutes: Routes = [
         RouterModule
     ]
 })
-export class HomeRoutingModule{
-
-}
+export class HomeRoutingModule{}

@@ -6,8 +6,13 @@ nav a{
     padding: 5px;
     text-decoration: none;
     color: black;
+    font-size: 1.2rem;
 }
 
 .active{
     color: green !important;
+}
+
+.header-row{
+    width: 100%;
 }
