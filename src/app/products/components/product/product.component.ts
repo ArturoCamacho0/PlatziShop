@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../../core/services/product.model';
 import { ProductService } from '../../../core/services/product.service';
+
+import { CartService } from '../../../core/services/cart/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -9,18 +11,14 @@ import { ProductService } from '../../../core/services/product.service';
 })
 export class ProductComponent implements OnInit {
 
-  products: Product[] = [];
+  @Input() product: Product;
 
-  constructor(private productService: ProductService) { }
+  constructor(private cartService: CartService) { }
 
-  ngOnInit(): void{
-    this.fetchProducts();
+  ngOnInit(): void{}
+
+  addCart(){
+    this.cartService.addCart(this.product);
+    //console.log(this.product);
   }
-
-  fetchProducts(){
-    this.productService.getAllProducts().subscribe(products => {
-      this.products = products;
-    });
-  }
-
 }

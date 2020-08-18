@@ -13,6 +13,7 @@ const appRoutes: Routes = [
         { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
         { path: 'products', canActivate: [AdminGuard], loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
         { path: 'contact', canActivate: [AdminGuard], loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
+        { path: 'order', loadChildren: () => import('./order/order.module').then(m => m.OrderModule) },
     ]},
     { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
     { path: '**', loadChildren: () => import('./page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent) }
