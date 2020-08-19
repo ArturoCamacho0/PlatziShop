@@ -1,0 +1,23 @@
+.title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-login{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    width: 50%;
+    margin-top: 20px;
+}
+
+.buttons{
+    display: flex;
+    gap: 20px;
+}

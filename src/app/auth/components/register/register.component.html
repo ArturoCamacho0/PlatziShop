@@ -1,0 +1,32 @@
+<mat-card class="card">
+    <mat-card-header class="title">
+        <mat-card-title><h2>Registrate y compra ya!</h2></mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="form-login">
+            <mat-form-field class="input" appearance="fill">
+                <mat-label>Ingresa un email</mat-label>
+                <input matInput placeholder="pat@example.com" [(ngModel)]="emailInput" [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{ getErrorMessageE() }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input" appearance="fill">
+                <mat-label>Ingresa una contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="passwordInput" [formControl]="password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="password.invalid">{{ getErrorMessageP() }}</mat-error>
+            </mat-form-field>
+
+            <div class="buttons">
+                <button mat-raised-button color="primary"
+                    (click)="register()"
+                    [disabled]="email.hasError('required') || password.hasError('required') || email.hasError('email')">
+                        Guardar
+                </button>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

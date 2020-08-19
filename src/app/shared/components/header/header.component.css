@@ -28,3 +28,8 @@ nav a{
 .header-row{
     width: 100%;
 }
+
+.buttons{
+    display: flex;
+    gap: 20px;
+}

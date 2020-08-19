@@ -13,6 +13,12 @@ import { LayoutComponent } from './layout/layout.component';
 import { MaterialModule } from './material/material.module';
 
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+
+
 
 @NgModule({
   declarations: [
@@ -28,6 +34,9 @@ import { MaterialModule } from './material/material.module';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [
     appRoutingProviders

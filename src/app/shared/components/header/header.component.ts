@@ -5,6 +5,9 @@ import { map } from 'rxjs/operators';
 import { CartService } from '../../../core/services/cart/cart.service';
 import { Observable } from 'rxjs';
 
+import { AuthService } from '../../../core/services/auth/auth.service';
+import { AdminGuard } from '../../../admin.guard';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,15 +17,14 @@ export class HeaderComponent implements OnInit {
 
   total$: Observable<number>;
 
-  constructor(private cartService: CartService){
+  user: boolean;
+
+  constructor(private cartService: CartService, private authService: AuthService, private guard: AdminGuard){
     this.total$ = cartService.cart$.pipe(
       map(products => products.length)
     );
   }
 
-  ngOnInit(): void {
-  }
-
-
+  ngOnInit(): void{}
 
 }

@@ -11,12 +11,13 @@ const appRoutes: Routes = [
     { path: '', component: LayoutComponent, children: [
         { path: '', redirectTo: '/home', pathMatch: 'full' },
         { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-        { path: 'products', canActivate: [AdminGuard], loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
-        { path: 'contact', canActivate: [AdminGuard], loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
+        { path: 'products',  loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) },
+        { path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
         { path: 'order', loadChildren: () => import('./order/order.module').then(m => m.OrderModule) },
+        { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
     ]},
-    { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-    { path: '**', loadChildren: () => import('./page-not-found/page-not-found.component').then(m => m.PageNotFoundComponent) }
+    { path: 'admin', canActivate: [AdminGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+    { path: '**', redirectTo: '/home' }
 ];
 
 // Exportar el módulo

@@ -7,10 +7,16 @@
                 <a mat-button [routerLink] = "['/products']" routerLinkActive="active">Products</a>
                 <a mat-button [routerLink] = "['/contact']" routerLinkActive="active">Contact</a>
             </nav>
-            <a mat-raised-button [matBadge]="total$ | async" matBadgeColor="accent" routerLink="/order">
-                <mat-icon>shopping_cart</mat-icon>
-                Carrito
-            </a>
+
+            <div class="buttons">
+                <a mat-raised-button [matBadge]="total$ | async" matBadgeColor="accent" routerLink="/order">
+                    <mat-icon>shopping_cart</mat-icon>
+                    Carrito
+                </a>
+
+                <a *ngIf="!user" mat-flat-button color="accent">Iniciar sesión</a>
+                <a *ngIf="user" mat-button>Panel</a>
+            </div>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>
