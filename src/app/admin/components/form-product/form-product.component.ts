@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 
 import { finalize } from 'rxjs/operators';
 
-import { ProductService } from '../../../core/services/product.service';
-import { Product } from 'src/app/core/services/product.model';
+import { ProductService } from '@core/services/product.service';
+import { Product } from '@core/services/product.model';
 import { MyValidators } from '../../../utils/validators';
 
 import { AngularFireStorage } from '@angular/fire/storage';

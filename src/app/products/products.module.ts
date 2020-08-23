@@ -8,7 +8,7 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 import { MaterialModule } from '../material/material.module';
-import { ProductsComponent } from './components/products/products.component';
+import { ProductsContainer } from './containers/products/products.container';
 
 
 
@@ -16,7 +16,7 @@ import { ProductsComponent } from './components/products/products.component';
   declarations: [
     ProductComponent,
     ProductDetailComponent,
-    ProductsComponent,
+    ProductsContainer,
   ],
   imports: [
     CommonModule,

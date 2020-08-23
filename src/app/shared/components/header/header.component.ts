@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { map } from 'rxjs/operators';
 
-import { CartService } from '../../../core/services/cart/cart.service';
+import { CartService } from '@core/services/cart/cart.service';
 import { Observable } from 'rxjs';
 
-import { AuthService } from '../../../core/services/auth/auth.service';
+import { AuthService } from '@core/services/auth/auth.service';
 import { AdminGuard } from '../../../admin.guard';
 
 @Component({
